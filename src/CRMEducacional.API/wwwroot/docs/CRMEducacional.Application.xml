@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CRMEducacional.Application</name>
+    </assembly>
+    <members>
+        <member name="T:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto">
+            <summary>
+            DTO para receber os dados de uma Inscrição na criação ou atualização.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.Data">
+            <summary>
+            Data da inscrição.
+            </summary>
+            <example>2024-08-09</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.LeadId">
+            <summary>
+            ID do lead relacionado à inscrição.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.NumeroInscricao">
+            <summary>
+            Número da inscrição.
+            </summary>
+            <example>INS-2024-12345</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.OfertaId">
+            <summary>
+            ID da oferta relacionada à inscrição.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.ProcessoSeletivoId">
+            <summary>
+            ID do processo seletivo relacionado à inscrição.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.Status">
+            <summary>
+            Status da inscrição.
+            </summary>
+            <example>Pendente</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.Create(CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto)">
+            <summary>
+            Cria uma nova instância da entidade Inscrição com base nos dados do DTO.
+            </summary>
+            <param name="request">Dados da inscrição a serem usados para a criação.</param>
+            <returns>Uma instância da entidade <see cref="T:CRMEducacional.Core.Entities.Inscricao" />.</returns>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto.Update(CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto,System.Int32)">
+            <summary>
+            Atualiza uma instância existente da entidade Inscrição com base nos dados do DTO e no ID fornecido.
+            </summary>
+            <param name="request">Dados da inscrição a serem usados para a atualização.</param>
+            <param name="id">ID da Inscrição a ser atualizada.</param>
+            <returns>Uma instância atualizada da entidade <see cref="T:CRMEducacional.Core.Entities.Inscricao" />.</returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto">
+            <summary>
+            DTO de resposta para a entidade Inscricao.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.Data">
+            <summary>
+            Data da inscrição.
+            </summary>
+            <example>2024-08-09</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.Id">
+            <summary>
+            ID da inscrição.
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.LeadId">
+            <summary>
+            ID do lead associado.
+            </summary>
+            <example>10</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.NumeroInscricao">
+            <summary>
+            Número da inscrição.
+            </summary>
+            <example>INS-2024-12345</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.OfertaId">
+            <summary>
+            ID da oferta associada.
+            </summary>
+            <example>5</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.ProcessoSeletivoId">
+            <summary>
+            ID do processo seletivo associado.
+            </summary>
+            <example>3</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.Status">
+            <summary>
+            Status da inscrição.
+            </summary>
+            <example>Pendente</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto.FromEntity(CRMEducacional.Core.Entities.Inscricao)">
+            <summary>
+            Converte uma entidade <see cref="T:CRMEducacional.Core.Entities.Inscricao" /> para um DTO de resposta <see
+            cref="T:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto" />.
+            </summary>
+            <param name="inscricao">A entidade de inscrição a ser convertida.</param>
+            <returns>Um objeto <see cref="T:CRMEducacional.Application.Dtos.Inscricao.Response.InscricaoResponseDto" /> contendo os dados da inscrição.</returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto">
+            <summary>
+            DTO para receber os dados de um Lead na criação ou atualização.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.Cpf">
+            <summary>
+            CPF do Lead.
+            </summary>
+            <example>686.420.180-54</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.Email">
+            <summary>
+            Email do Lead.
+            </summary>
+            <example>exemplo@dominio.com</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.Nome">
+            <summary>
+            Nome do Lead.
+            </summary>
+            <example>João da Silva</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.Telefone">
+            <summary>
+            Telefone do Lead.
+            </summary>
+            <example>(11) 99417-0751</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.Create(CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto)">
+            <summary>
+            Cria uma nova instância da entidade Lead com base nos dados do DTO.
+            </summary>
+            <param name="request">Dados do Lead a serem usados para a criação.</param>
+            <returns>Uma instância da entidade <see cref="T:CRMEducacional.Core.Entities.Lead" />.</returns>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto.Update(CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto,System.Int32)">
+            <summary>
+            Atualiza uma instância existente da entidade Lead com base nos dados do DTO e no ID fornecido.
+            </summary>
+            <param name="request">Dados do Lead a serem usados para a atualização.</param>
+            <param name="id">ID do Lead a ser atualizado.</param>
+            <returns>Uma instância atualizada da entidade <see cref="T:CRMEducacional.Core.Entities.Lead" />.</returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto">
+            <summary>
+            DTO de resposta para a entidade Lead.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.CPF">
+            <summary>
+            CPF do lead.
+            </summary>
+            <example>123.456.789-00</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.Email">
+            <summary>
+            Email do lead.
+            </summary>
+            <example>exemplo@dominio.com</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.Id">
+            <summary>
+            ID do lead.
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.Nome">
+            <summary>
+            Nome do lead.
+            </summary>
+            <example>João da Silva</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.Telefone">
+            <summary>
+            Telefone do lead.
+            </summary>
+            <example>(11) 91234-5678</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto.FromEntity(CRMEducacional.Core.Entities.Lead)">
+            <summary>
+            Converte uma entidade <see cref="T:CRMEducacional.Core.Entities.Lead" /> para um DTO de resposta <see
+            cref="T:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto" />.
+            </summary>
+            <param name="lead">A entidade Lead a ser convertida.</param>
+            <returns>Um objeto <see cref="T:CRMEducacional.Application.Dtos.Lead.Response.LeadResponseDto" /> contendo os dados do lead.</returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto">
+            <summary>
+            DTO para receber os dados de uma Oferta na criação ou atualização.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto.Descricao">
+            <summary>
+            Descrição da Oferta.
+            </summary>
+            <example>Curso de programação avançada</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto.Nome">
+            <summary>
+            Nome da Oferta.
+            </summary>
+            <example>Programação Avançada</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto.VagasDisponiveis">
+            <summary>
+            Número de vagas disponíveis para a Oferta.
+            </summary>
+            <example>30</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto.Create(CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto)">
+            <summary>
+            Cria uma nova instância da entidade Oferta com base nos dados do DTO.
+            </summary>
+            <param name="request">Dados da Oferta a serem usados para a criação.</param>
+            <returns>Uma instância da entidade <see cref="T:CRMEducacional.Core.Entities.Oferta" />.</returns>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto.Update(CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto,System.Int32)">
+            <summary>
+            Atualiza uma instância existente da entidade Oferta com base nos dados do DTO e no ID fornecido.
+            </summary>
+            <param name="request">Dados da Oferta a serem usados para a atualização.</param>
+            <param name="id">ID da Oferta a ser atualizada.</param>
+            <returns>Uma instância atualizada da entidade <see cref="T:CRMEducacional.Core.Entities.Oferta" />.</returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto">
+            <summary>
+            DTO de resposta para a entidade Oferta.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto.Descricao">
+            <summary>
+            Descrição da oferta.
+            </summary>
+            <example>Curso de Engenharia de Software</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto.Id">
+            <summary>
+            ID da oferta.
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto.Nome">
+            <summary>
+            Nome da oferta.
+            </summary>
+            <example>Engenharia de Software</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto.VagasDisponiveis">
+            <summary>
+            Número de vagas disponíveis para a oferta.
+            </summary>
+            <example>30</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto.FromEntity(CRMEducacional.Core.Entities.Oferta)">
+            <summary>
+            Converte uma entidade <see cref="T:CRMEducacional.Core.Entities.Oferta" /> para um DTO de resposta <see
+            cref="T:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto" />.
+            </summary>
+            <param name="oferta">A entidade Oferta a ser convertida.</param>
+            <returns>Um objeto <see cref="T:CRMEducacional.Application.Dtos.Oferta.Response.OfertaResponseDto" /> contendo os dados da oferta.</returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto">
+            <summary>
+            DTO para receber os dados de um Processo Seletivo na criação ou atualização.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto.DataInicio">
+            <summary>
+            Data de início do Processo Seletivo.
+            </summary>
+            <example>2024-08-01</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto.DataTermino">
+            <summary>
+            Data de término do Processo Seletivo.
+            </summary>
+            <example>2024-08-31</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto.Nome">
+            <summary>
+            Nome do Processo Seletivo.
+            </summary>
+            <example>Processo Seletivo 2024</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto.Create(CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto)">
+            <summary>
+            Cria uma nova instância da entidade Processo Seletivo com base nos dados do DTO.
+            </summary>
+            <param name="request">Dados do Processo Seletivo a serem usados para a criação.</param>
+            <returns>Uma instância da entidade <see cref="T:CRMEducacional.Core.Entities.ProcessoSeletivo" />.</returns>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto.Update(CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto,System.Int32)">
+            <summary>
+            Atualiza uma instância existente da entidade Processo Seletivo com base nos dados do DTO e
+            no ID fornecido.
+            </summary>
+            <param name="request">Dados do Processo Seletivo a serem usados para a atualização.</param>
+            <param name="id">ID do Processo Seletivo a ser atualizado.</param>
+            <returns>
+            Uma instância atualizada da entidade <see cref="T:CRMEducacional.Core.Entities.ProcessoSeletivo" />.
+            </returns>
+        </member>
+        <member name="T:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto">
+            <summary>
+            DTO de resposta para a entidade Processo Seletivo.
+            </summary>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto.#ctor">
+            <summary>
+            Construtor padrão inicializando as propriedades com valores padrão.
+            </summary>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto.DataInicio">
+            <summary>
+            Data de início do processo seletivo.
+            </summary>
+            <example>2024-08-01T00:00:00</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto.DataTermino">
+            <summary>
+            Data de término do processo seletivo.
+            </summary>
+            <example>2024-08-15T00:00:00</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto.Id">
+            <summary>
+            ID do processo seletivo.
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto.Nome">
+            <summary>
+            Nome do processo seletivo.
+            </summary>
+            <example>Vestibular 2024</example>
+        </member>
+        <member name="M:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto.FromEntity(CRMEducacional.Core.Entities.ProcessoSeletivo)">
+            <summary>
+            Converte uma entidade <see cref="T:CRMEducacional.Core.Entities.ProcessoSeletivo" /> para um DTO de resposta
+            <see cref="T:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto" />.
+            </summary>
+            <param name="processoSeletivo">A entidade Processo Seletivo a ser convertida.</param>
+            <returns>
+            Um objeto <see cref="T:CRMEducacional.Application.Dtos.ProcessoSeletivo.Response.ProcessoSeletivoResponseDto" /> contendo os dados do processo seletivo.
+            </returns>
+        </member>
+    </members>
+</doc>

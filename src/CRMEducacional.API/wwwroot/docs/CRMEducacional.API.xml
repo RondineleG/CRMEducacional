@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CRMEducacional.API</name>
+    </assembly>
+    <members>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.AtualizarAsync(System.Int32,CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto)">
+            <summary>
+            Atualiza uma inscrição existente pelo ID.
+            </summary>
+            <param name="inscricaoId">ID da inscrição a ser atualizada.</param>
+            <param name="inscricaoRequestDto">Dados da inscrição para atualização.</param>
+            <returns>Retorna a inscrição atualizada.</returns>
+            <response code="200">Retorna a inscrição atualizada.</response>
+            <response code="400">Se o ID da inscrição ou os dados de entrada forem inválidos.</response>
+            <response code="404">Se a inscrição não for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.CriarNovoAsync(CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto)">
+            <summary>
+            Cria uma nova inscrição.
+            </summary>
+            <param name="request">Dados da inscrição para criação.</param>
+            <returns>Retorna a inscrição criada.</returns>
+            <response code="201">Retorna a inscrição criada.</response>
+            <response code="400">Se os dados de entrada forem inválidos.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.DeletarAsync(System.Int32)">
+            <summary>
+            Exclui uma inscrição existente pelo ID.
+            </summary>
+            <param name="inscricaoId">ID da inscrição a ser excluída.</param>
+            <returns>Retorna o status da exclusão.</returns>
+            <response code="200">Se a exclusão for bem-sucedida.</response>
+            <response code="400">Se o ID da inscrição for inválido.</response>
+            <response code="404">Se a inscrição não for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.ObterPorIdAsync(System.Int32)">
+            <summary>
+            Obtém uma inscrição existente pelo ID.
+            </summary>
+            <param name="inscricaoId">ID da inscrição a ser obtida.</param>
+            <returns>Retorna a inscrição encontrada.</returns>
+            <response code="200">Retorna a inscrição encontrada.</response>
+            <response code="400">Se o ID da inscrição for inválido.</response>
+            <response code="404">Se a inscrição não for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.ObterTodosAsync(System.Int32,System.Int32)">
+            <summary>
+            Retorna todas as inscrições cadastradas.
+            </summary>
+            <param name="pagina">Número da página (padrão: 1).</param>
+            <param name="itensPorPagina">Número de itens por página (padrão: 20).</param>
+            <returns>Retorna as inscrições encontradas.</returns>
+            <response code="200">Retorna as inscrições encontradas.</response>
+            <response code="400">Se os parâmetros de paginação forem inválidos.</response>
+            <response code="404">Se nenhuma inscrição for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.LeadController.AtualizarAsync(System.Int32,CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto)">
+            <summary>
+            Atualiza um lead existente pelo ID.
+            </summary>
+            <param name="leadId">ID do lead a ser atualizado.</param>
+            <param name="request">Dados do lead para atualização.</param>
+            <returns>Retorna o lead atualizado.</returns>
+            <response code="200">Retorna o lead atualizado.</response>
+            <response code="400">Se o ID do lead ou os dados de entrada forem inválidos.</response>
+            <response code="404">Se o lead não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.LeadController.CriarNovoAsync(CRMEducacional.Application.Dtos.Lead.Request.LeadRequestDto)">
+            <summary>
+            Cria um novo lead.
+            </summary>
+            <param name="request">Dados do lead para criação.</param>
+            <returns>Retorna o lead criado.</returns>
+            <response code="201">Retorna o lead criado.</response>
+            <response code="400">Se os dados de entrada forem inválidos.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.LeadController.DeletarAsync(System.Int32)">
+            <summary>
+            Exclui um lead existente pelo ID.
+            </summary>
+            <param name="leadId">ID do lead a ser excluído.</param>
+            <returns>Retorna o status da exclusão.</returns>
+            <response code="200">Se a exclusão for bem-sucedida.</response>
+            <response code="400">Se o ID do lead for inválido.</response>
+            <response code="404">Se o lead não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.LeadController.ObterPorCPFAsync(System.String)">
+            <summary>
+            Retorna um lead pelo ID.
+            </summary>
+            <param name="cpf">CPF do lead a ser retornado.</param>
+            <returns>Retorna o lead correspondente ao ID.</returns>
+            <response code="200">Retorna o lead encontrado.</response>
+            <response code="400">Se o ID do lead for inválido.</response>
+            <response code="404">Se o lead não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.LeadController.ObterPorIdAsync(System.Int32)">
+            <summary>
+            Retorna um lead pelo ID.
+            </summary>
+            <param name="leadId">ID do lead a ser retornado.</param>
+            <returns>Retorna o lead correspondente ao ID.</returns>
+            <response code="200">Retorna o lead encontrado.</response>
+            <response code="400">Se o ID do lead for inválido.</response>
+            <response code="404">Se o lead não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.LeadController.ObterTodosAsync(System.Int32,System.Int32)">
+            <summary>
+            Retorna todos os leads cadastrados.
+            </summary>
+            <param name="pagina">Número da página (padrão: 1).</param>
+            <param name="itensPorPagina">Número de itens por página (padrão: 20).</param>
+            <returns>Retorna os leads encontrados.</returns>
+            <response code="200">Retorna os leads encontrados.</response>
+            <response code="400">Se os parâmetros de paginação forem inválidos.</response>
+            <response code="404">Se nenhum lead for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.OfertaController.AtualizarAsync(System.Int32,CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto)">
+            <summary>
+            Atualiza uma oferta existente pelo ID.
+            </summary>
+            <param name="ofertaId">ID da oferta a ser atualizada.</param>
+            <param name="request">Dados da oferta para atualização.</param>
+            <returns>Retorna a oferta atualizada.</returns>
+            <response code="200">Retorna a oferta atualizada.</response>
+            <response code="400">Se o ID da oferta ou os dados de entrada forem inválidos.</response>
+            <response code="404">Se a oferta não for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.OfertaController.CriarNovoAsync(CRMEducacional.Application.Dtos.Oferta.Request.OfertaRequestDto)">
+            <summary>
+            Cria uma nova oferta.
+            </summary>
+            <param name="request">Dados da oferta para criação.</param>
+            <returns>Retorna a oferta criada.</returns>
+            <response code="201">Retorna a oferta criada.</response>
+            <response code="400">Se os dados de entrada forem inválidos.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.OfertaController.DeletarAsync(System.Int32)">
+            <summary>
+            Exclui uma oferta existente pelo ID.
+            </summary>
+            <param name="ofertaId">ID da oferta a ser excluída.</param>
+            <returns>Retorna o status da exclusão.</returns>
+            <response code="200">Se a exclusão for bem-sucedida.</response>
+            <response code="400">Se o ID da oferta for inválido.</response>
+            <response code="404">Se a oferta não for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.OfertaController.ObterPorIdAsync(System.Int32)">
+            <summary>
+            Obtém uma oferta existente pelo ID.
+            </summary>
+            <param name="ofertaId">ID da oferta a ser obtida.</param>
+            <returns>Retorna a oferta encontrada.</returns>
+            <response code="200">Retorna a oferta encontrada.</response>
+            <response code="400">Se o ID da oferta for inválido.</response>
+            <response code="404">Se a oferta não for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.OfertaController.ObterTodosAsync(System.Int32,System.Int32)">
+            <summary>
+            Retorna todas as ofertas cadastradas.
+            </summary>
+            <param name="pagina">Número da página (padrão: 1).</param>
+            <param name="itensPorPagina">Número de itens por página (padrão: 20).</param>
+            <returns>Retorna as ofertas encontradas.</returns>
+            <response code="200">Retorna as ofertas encontradas.</response>
+            <response code="400">Se os parâmetros de paginação forem inválidos.</response>
+            <response code="404">Se nenhuma oferta for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.ProcessoSeletivoController.AtualizarAsync(System.Int32,CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto)">
+            <summary>
+            Atualiza um processo seletivo existente pelo ID.
+            </summary>
+            <param name="processoSeletivoId">ID do processo seletivo a ser atualizado.</param>
+            <param name="request">Dados do processo seletivo para atualização.</param>
+            <returns>Retorna o processo seletivo atualizado.</returns>
+            <response code="200">Retorna o processo seletivo atualizado.</response>
+            <response code="400">Se o ID do processo seletivo ou os dados de entrada forem inválidos.</response>
+            <response code="404">Se o processo seletivo não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.ProcessoSeletivoController.CriarNovoAsync(CRMEducacional.Application.Dtos.ProcessoSeletivo.Request.ProcessoSeletivoRequestDto)">
+            <summary>
+            Cria um novo processo seletivo.
+            </summary>
+            <param name="request">Dados do processo seletivo para criação.</param>
+            <returns>Retorna o processo seletivo criado.</returns>
+            <response code="201">Retorna o processo seletivo criado.</response>
+            <response code="400">Se os dados de entrada forem inválidos.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.ProcessoSeletivoController.DeletarAsync(System.Int32)">
+            <summary>
+            Exclui um processo seletivo existente pelo ID.
+            </summary>
+            <param name="processoSeletivoId">ID do processo seletivo a ser excluído.</param>
+            <returns>Retorna o status da exclusão.</returns>
+            <response code="200">Se a exclusão for bem-sucedida.</response>
+            <response code="400">Se o ID do processo seletivo for inválido.</response>
+            <response code="404">Se o processo seletivo não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.ProcessoSeletivoController.ObterPorIdAsync(System.Int32)">
+            <summary>
+            Obtém um processo seletivo pelo ID.
+            </summary>
+            <param name="processoSeletivoId">ID do processo seletivo a ser obtido.</param>
+            <returns>Retorna o processo seletivo encontrado.</returns>
+            <response code="200">Retorna o processo seletivo encontrado.</response>
+            <response code="400">Se o ID do processo seletivo for inválido.</response>
+            <response code="404">Se o processo seletivo não for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.ProcessoSeletivoController.ObterTodosAsync(System.Int32,System.Int32)">
+            <summary>
+            Retorna todos os processos seletivos cadastrados.
+            </summary>
+            <param name="pagina">Número da página (padrão: 1).</param>
+            <param name="itensPorPagina">Número de itens por página (padrão: 20).</param>
+            <returns>Retorna os processos seletivos encontrados.</returns>
+            <response code="200">Retorna os processos seletivos encontrados.</response>
+            <response code="400">Se os parâmetros de paginação forem inválidos.</response>
+            <response code="404">Se nenhum processo seletivo for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v2.ProcessoSeletivoController.ObterTodosAsync(System.Int32,System.Int32)">
+            <summary>
+            Retorna todos os processos seletivos cadastrados.
+            </summary>
+            <param name="pagina">Número da página (padrão: 1).</param>
+            <param name="itensPorPagina">Número de itens por página (padrão: 20).</param>
+            <returns>Retorna os processos seletivos encontrados.</returns>
+            <response code="200">Retorna os processos seletivos encontrados.</response>
+            <response code="400">Se os parâmetros de paginação forem inválidos.</response>
+            <response code="404">Se nenhum processo seletivo for encontrado.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+    </members>
+</doc>
