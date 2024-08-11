@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<BaseOutputPath>$(MSBuildProjectDirectory)\docs</BaseOutputPath>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>$(MSBuildProjectDirectory)\..\CRMEducacional.API\wwwroot\docs\CRMEducacional.Core.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Abstractions\Interfaces\**" />
+	  <EmbeddedResource Remove="Abstractions\Interfaces\**" />
+	  <None Remove="Abstractions\Interfaces\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Enums\" />
+	</ItemGroup>
+
+</Project>
