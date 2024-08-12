@@ -41,14 +41,9 @@ public class LeadRepositorio : ILeadRepositorio
             {
                 return CustomResult<Lead>.WithError($"Lead com ID {lead.Id} não encontrado.");
             }
-
             _context.Entry(existingLead).State = EntityState.Detached;
-
-            _context.Leads.Attach(lead);
             _context.Entry(lead).State = EntityState.Modified;
-
             await _context.SaveChangesAsync();
-
             return CustomResult<Lead>.Success(lead);
         }
         catch (DbUpdateConcurrencyException)

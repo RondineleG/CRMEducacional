@@ -25,6 +25,7 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
 		<PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
 		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7"/>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -39,11 +40,11 @@
 		<PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\CRMEducacional.Application\CRMEducacional.Application.csproj" />
-	  <ProjectReference Include="..\CRMEducacional.Persistence\CRMEducacional.Persistence.csproj" />
+		<ProjectReference Include="..\CRMEducacional.Application\CRMEducacional.Application.csproj" />
+		<ProjectReference Include="..\CRMEducacional.Persistence\CRMEducacional.Persistence.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="wwwroot\Logs\" />
+		<Folder Include="wwwroot\Logs\" />
 	</ItemGroup>
 
 </Project>

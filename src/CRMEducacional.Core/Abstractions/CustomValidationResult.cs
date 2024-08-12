@@ -58,4 +58,23 @@ public sealed class CustomValidationResult
     {
         return string.Join("; ", Errors);
     }
+
+    public async Task ValidarEntidadeRelacionada<TEntidade>(
+            int id,
+    Func<int, Task<CustomResult<TEntidade>>> obterPorId,
+    string mensagemErro,
+    string nomeCampo,
+    Action<TEntidade> setEntidade,
+    CustomValidationResult resultadoValidacao)
+    {
+        var resultado = await obterPorId(id);
+        if (resultado.Status != ECustomResultStatus.Success || resultado.Data == null)
+        {
+            resultadoValidacao.AddError(mensagemErro, nomeCampo);
+        }
+        else
+        {
+            setEntidade(resultado.Data);
+        }
+    }
 }

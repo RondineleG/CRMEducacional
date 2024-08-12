@@ -29,6 +29,12 @@ public class InscricaoRepositorio : IInscricaoRepositorio
     {
         try
         {
+            var existingInscricao = await _context.Inscricoes.FindAsync(inscricao.Id);
+            if (existingInscricao == null)
+            {
+                return CustomResult<Inscricao>.WithError($"Inscricao com ID {inscricao.Id} não encontrado.");
+            }
+            _context.Entry(existingInscricao).State = EntityState.Detached;
             _context.Entry(inscricao).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return CustomResult<Inscricao>.Success(inscricao);

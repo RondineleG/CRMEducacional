@@ -66,4 +66,22 @@ public class Inscricao : BaseEntity
         ProcessoSeletivoId = processoSeletivoId;
         OfertaId = ofertaId;
     }
+
+    public void SetLead(Lead lead)
+    {
+        Lead = lead ?? throw new ArgumentNullException(nameof(lead));
+        LeadId = lead.Id;
+    }
+
+    public void SetOferta(Oferta oferta)
+    {
+        Oferta = oferta ?? throw new ArgumentNullException(nameof(oferta));
+        OfertaId = oferta.Id;
+    }
+
+    public void SetProcessoSeletivo(ProcessoSeletivo processoSeletivo)
+    {
+        ProcessoSeletivo = processoSeletivo ?? throw new ArgumentNullException(nameof(processoSeletivo));
+        ProcessoSeletivoId = processoSeletivo.Id;
+    }
 }
