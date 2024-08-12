@@ -30,9 +30,9 @@ public class ProcessoSeletivoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpPut("{processoSeletivoId}")]
     [ProducesResponseType(typeof(ProcessoSeletivoResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     [Consumes("application/json")]
     public async Task<IActionResult> AtualizarAsync(int processoSeletivoId, [FromBody] ProcessoSeletivoRequestDto request)
@@ -54,9 +54,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(AtualizarAsync),
-                "Recebeu os parâmetros: processoSeletivoId={processoSeletivoId}, request={request}",
-                processoSeletivoId,
-                request
+                $"Recebeu os parâmetros: processoSeletivoId={processoSeletivoId}, request={request}"
             );
 
             var processoSeletivo = await _processoSeletivoServico.ObterPorIdAsync(processoSeletivoId);
@@ -72,9 +70,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(AtualizarAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                              $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
 
             return response.Status switch
@@ -90,8 +87,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(ProcessoSeletivoController),
                 nameof(AtualizarAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -104,8 +100,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(AtualizarAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -120,8 +116,8 @@ public class ProcessoSeletivoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpPost]
     [ProducesResponseType(typeof(ProcessoSeletivoResponseDto), StatusCodes.Status201Created)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     [Consumes("application/json")]
     public async Task<IActionResult> CriarNovoAsync([FromBody] ProcessoSeletivoRequestDto request)
@@ -138,8 +134,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(CriarNovoAsync),
-                "Recebeu os parâmetros: request={request}",
-                request
+                $"Recebeu os parâmetros: request={request}"
             );
 
             var processoSeletivo = ProcessoSeletivoRequestDto.Create(request);
@@ -149,9 +144,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(CriarNovoAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                               $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
 
             return response.Status switch
@@ -167,8 +161,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(ProcessoSeletivoController),
                 nameof(CriarNovoAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -179,8 +172,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(CriarNovoAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -196,9 +189,9 @@ public class ProcessoSeletivoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpDelete("{processoSeletivoId}")]
     [ProducesResponseType(typeof(ProcessoSeletivoResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> DeletarAsync(int processoSeletivoId)
     {
         if (processoSeletivoId <= 0)
@@ -213,8 +206,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(DeletarAsync),
-                "Recebeu o parâmetro: processoSeletivoId={processoSeletivoId}",
-                processoSeletivoId
+                $"Recebeu o parâmetro: processoSeletivoId={processoSeletivoId}"
             );
 
             var response = await _processoSeletivoServico.RemoverAsync(processoSeletivoId);
@@ -223,8 +215,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(DeletarAsync),
-                "Exclusão concluída com sucesso para o processoSeletivoId={processoSeletivoId}",
-                processoSeletivoId
+                $"Exclusão concluída com sucesso para o processoSeletivoId={processoSeletivoId}"
             );
 
             return response.Status switch
@@ -241,8 +232,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(ProcessoSeletivoController),
                 nameof(DeletarAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -255,8 +245,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(DeletarAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -272,9 +262,9 @@ public class ProcessoSeletivoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("{processoSeletivoId}")]
     [ProducesResponseType(typeof(ProcessoSeletivoResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> ObterPorIdAsync(int processoSeletivoId)
     {
         if (processoSeletivoId <= 0)
@@ -289,8 +279,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterPorIdAsync),
-                "Recebeu o parâmetro: processoSeletivoId={processoSeletivoId}",
-                processoSeletivoId
+                $"Recebeu o parâmetro: processoSeletivoId={processoSeletivoId}"
             );
 
             var response = await _processoSeletivoServico.ObterPorIdAsync(processoSeletivoId);
@@ -299,9 +288,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterPorIdAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                              $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
 
             return response.Status switch
@@ -318,8 +306,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterPorIdAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -332,8 +319,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterPorIdAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -350,9 +337,9 @@ public class ProcessoSeletivoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("Todos")]
     [ProducesResponseType(typeof(IEnumerable<ProcessoSeletivoResponseDto>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     public async Task<IActionResult> ObterTodosAsync([FromQuery] int pagina = 1, [FromQuery] int itensPorPagina = 20)
     {
@@ -368,9 +355,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Recebeu os parâmetros: pagina={Pagina}, itensPorPagina={ItensPorPagina}",
-                pagina,
-                itensPorPagina
+                $"Recebeu os parâmetros: pagina={pagina}, itensPorPagina={itensPorPagina}"
             );
 
             var response = await _processoSeletivoServico.ObterTodosAsync(pagina, itensPorPagina);
@@ -379,9 +364,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                               $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
 
             var dtoResponse = response.Data?.Select(ProcessoSeletivoResponseDto.FromEntity);
@@ -400,8 +384,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Encontrou uma exceção: {MensagemExcecao}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -412,8 +395,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }

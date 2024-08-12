@@ -31,6 +31,12 @@ public class ProcessoSeletivoRepositorio : IProcessoSeletivoRepositorio
     {
         try
         {
+            var existingProcessoSeletivo = await _context.Leads.FindAsync(processoSeletivo.Id);
+            if (existingProcessoSeletivo == null)
+            {
+                return CustomResult<ProcessoSeletivo>.WithError($"ProcessoSeletivo com ID {processoSeletivo.Id} não encontrado.");
+            }
+            _context.Entry(existingProcessoSeletivo).State = EntityState.Detached;
             _context.Entry(processoSeletivo).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return CustomResult<ProcessoSeletivo>.Success(processoSeletivo);

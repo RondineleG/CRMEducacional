@@ -1,9 +1,7 @@
-using CRMEducacional.API.LogConfigurations;
 using CRMEducacional.Core.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var hostEnvironment = builder.Environment;
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -13,35 +11,27 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
-builder
-    .Configuration.SetBasePath(hostEnvironment.ContentRootPath)
+
+builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-    .AddJsonFile(
-        $"appsettings.{hostEnvironment.EnvironmentName}.json",
-        optional: true,
-        reloadOnChange: true
-    )
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
 
-if (hostEnvironment.IsDevelopment())
+if (builder.Environment.IsDevelopment())
 {
     builder.Configuration.AddUserSecrets<Program>(optional: true);
 }
-var loggingSection = builder.Configuration.GetSection("Logging");
-using var loggerFactory = LoggerFactory.Create(builder =>
-{
-    builder
-       .AddConfiguration(loggingSection)
-       .AddSimpleConsole()
-       .AddConsoleFormatter<CsvLogFormatterConfiguration, ConsoleFormatterOptions>();
-});
 
-builder.Services.RegisterApplicationServices(builder.Configuration, hostEnvironment);
 Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration).CreateLogger();
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+
 builder.Host.UseSerilog();
 
+builder.Services.RegisterApplicationServices(builder.Configuration, builder.Environment);
+
 var app = builder.Build();
+
 app.UseApplicationServices();
 app.UseCors("AllowAll");
 

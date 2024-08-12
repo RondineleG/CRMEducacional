@@ -4,13 +4,27 @@ namespace CRMEducacional.Application.Services;
 
 public class InscricaoServico : IInscricaoServico
 {
-    public InscricaoServico(IInscricaoRepositorio inscricaoRepositorio, IValidacaoService validacaoService)
+    public InscricaoServico(
+        IInscricaoRepositorio inscricaoRepositorio,
+        ILeadRepositorio leadRepositorio,
+        IProcessoSeletivoRepositorio processoSeletivoRepositorio,
+        IOfertaRepositorio ofertaRepositorio,
+        IValidacaoService validacaoService)
     {
         _inscricaoRepositorio = inscricaoRepositorio;
+        _leadRepositorio = leadRepositorio;
+        _processoSeletivoRepositorio = processoSeletivoRepositorio;
+        _ofertaRepositorio = ofertaRepositorio;
         _validacaoService = validacaoService;
     }
 
     private readonly IInscricaoRepositorio _inscricaoRepositorio;
+
+    private readonly ILeadRepositorio _leadRepositorio;
+
+    private readonly IOfertaRepositorio _ofertaRepositorio;
+
+    private readonly IProcessoSeletivoRepositorio _processoSeletivoRepositorio;
 
     private readonly IValidacaoService _validacaoService;
 
@@ -67,7 +81,7 @@ public class InscricaoServico : IInscricaoServico
 
     private async Task<CustomResult<Inscricao>> ExecutarOperacaoAsync(Inscricao inscricao, Func<Inscricao, Task<CustomResult<Inscricao>>> operacao)
     {
-        var resultadoValidacao = ValidarInscricao(inscricao);
+        var resultadoValidacao = await ValidarInscricaoAsync(inscricao);
         if (!resultadoValidacao.IsValid)
         {
             var resultado = new CustomResult<Inscricao>();
@@ -82,9 +96,34 @@ public class InscricaoServico : IInscricaoServico
         return await ExecutarOperacaoAsync(() => operacao(inscricao));
     }
 
-    private CustomValidationResult ValidarInscricao(Inscricao inscricao)
+    private async Task<CustomValidationResult> ValidarInscricaoAsync(Inscricao inscricao)
     {
         var resultadoValidacao = new CustomValidationResult();
+
+        await resultadoValidacao.ValidarEntidadeRelacionada(
+            inscricao.LeadId,
+            _leadRepositorio.ObterPorIdAsync,
+            "Lead não encontrado.",
+            nameof(inscricao.LeadId),
+            inscricao.SetLead,
+            resultadoValidacao);
+
+        await resultadoValidacao.ValidarEntidadeRelacionada(
+            inscricao.ProcessoSeletivoId,
+            _processoSeletivoRepositorio.ObterPorIdAsync,
+            "Processo Seletivo não encontrado.",
+            nameof(inscricao.ProcessoSeletivoId),
+            inscricao.SetProcessoSeletivo,
+            resultadoValidacao);
+
+        await resultadoValidacao.ValidarEntidadeRelacionada(
+            inscricao.OfertaId,
+            _ofertaRepositorio.ObterPorIdAsync,
+            "Oferta não encontrada.",
+            nameof(inscricao.OfertaId),
+            inscricao.SetOferta,
+            resultadoValidacao);
+
         resultadoValidacao.Merge(_validacaoService.ValidarInscricao(inscricao));
         return resultadoValidacao;
     }
