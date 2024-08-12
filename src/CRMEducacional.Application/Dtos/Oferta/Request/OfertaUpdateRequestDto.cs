@@ -1,6 +1,4 @@
-using CRMEducacional.Application.Dtos.Oferta.Request;
-
-namespace CRMEducacional.Application.Dtos.Inscricao.Request;
+namespace CRMEducacional.Application.Dtos.Oferta.Request;
 
 public class OfertaUpdateRequestDto
 {

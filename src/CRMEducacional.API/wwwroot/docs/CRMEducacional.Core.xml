@@ -11,18 +11,18 @@
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.#ctor">
             <summary>
-            Inicializa uma nova instância de <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status de sucesso.
+            Inicializa uma nova instância de <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status de sucesso.
             </summary>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.#ctor(System.String)">
             <summary>
-            Inicializa uma nova instância de <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com uma mensagem de erro.
+            Inicializa uma nova instância de <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com uma mensagem de erro.
             </summary>
             <param name="message">A mensagem de erro.</param>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.#ctor(System.String,System.String)">
             <summary>
-            Inicializa uma nova instância de <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com um ID e uma mensagem.
+            Inicializa uma nova instância de <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com um ID e uma mensagem.
             </summary>
             <param name="id">O ID associado ao resultado.</param>
             <param name="message">A mensagem associada ao resultado.</param>
@@ -79,7 +79,7 @@
             <param name="entity">O nome da entidade.</param>
             <param name="id">O ID da entidade.</param>
             <param name="description">A descrição do aviso.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityAlreadyExists"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityAlreadyExists" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.EntityHasError(System.String,System.Object,System.String)">
             <summary>
@@ -88,7 +88,7 @@
             <param name="entity">O nome da entidade.</param>
             <param name="id">O ID da entidade.</param>
             <param name="description">A descrição do erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.EntityNotFound(System.String,System.Object,System.String)">
             <summary>
@@ -97,68 +97,68 @@
             <param name="entity">O nome da entidade.</param>
             <param name="id">O ID da entidade.</param>
             <param name="description">A descrição do erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityNotFound"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityNotFound" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.Success">
             <summary>
             Cria um novo resultado de sucesso.
             </summary>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.Success"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.Success" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithError(System.String)">
             <summary>
             Cria um novo resultado com um erro geral.
             </summary>
             <param name="message">A mensagem de erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithError(System.Exception)">
             <summary>
             Cria um novo resultado com um erro geral a partir de uma exceção.
             </summary>
             <param name="exception">A exceção que gerou o erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithError(System.Collections.Generic.List{System.String})">
             <summary>
             Cria um novo resultado com uma lista de erros gerais.
             </summary>
             <param name="generalErrors">A lista de erros gerais.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithError(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
             <summary>
             Cria um novo resultado com erros de entidade.
             </summary>
             <param name="entityErrors">Um dicionário contendo erros de entidade.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithError(CRMEducacional.Core.Abstractions.Error)">
             <summary>
             Cria um novo resultado com um erro específico.
             </summary>
             <param name="error">O erro específico.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithNoContent">
             <summary>
             Cria um novo resultado indicando que não há conteúdo disponível.
             </summary>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.NoContent"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.NoContent" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithValidations(CRMEducacional.Core.Abstractions.Validation[])">
             <summary>
             Cria um novo resultado com validações específicas.
             </summary>
             <param name="validations">As validações a serem aplicadas.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithValidations(System.Collections.Generic.IEnumerable{CRMEducacional.Core.Abstractions.Validation})">
             <summary>
             Cria um novo resultado com uma coleção de validações.
             </summary>
             <param name="validations">A coleção de validações.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.WithValidations(System.String,System.String)">
             <summary>
@@ -166,7 +166,7 @@
             </summary>
             <param name="propertyName">O nome da propriedade que falhou na validação.</param>
             <param name="description">A descrição do erro de validação.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult.AddEntityError(System.String,System.String)">
             <summary>
@@ -183,7 +183,7 @@
         </member>
         <member name="T:CRMEducacional.Core.Abstractions.CustomResult`1">
             <summary>
-            Representa o resultado de uma operação contendo dados específicos do tipo <typeparamref name="T"/>.
+            Representa o resultado de uma operação contendo dados específicos do tipo <typeparamref name="T" />.
             </summary>
             <typeparam name="T">O tipo de dados retornado pela operação.</typeparam>
         </member>
@@ -199,7 +199,7 @@
             <param name="entity">O nome da entidade.</param>
             <param name="id">O ID da entidade.</param>
             <param name="description">A descrição do aviso.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityAlreadyExists"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityAlreadyExists" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.EntityHasError(System.String,System.Object,System.String)">
             <summary>
@@ -208,7 +208,7 @@
             <param name="entity">O nome da entidade.</param>
             <param name="id">O ID da entidade.</param>
             <param name="description">A descrição do erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.EntityNotFound(System.String,System.Object,System.String)">
             <summary>
@@ -217,7 +217,7 @@
             <param name="entity">O nome da entidade.</param>
             <param name="id">O ID da entidade.</param>
             <param name="description">A descrição do erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityNotFound"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityNotFound" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.op_Implicit(`0)~CRMEducacional.Core.Abstractions.CustomResult{`0}">
             <summary>
@@ -248,55 +248,55 @@
             Cria um novo resultado de sucesso com os dados fornecidos.
             </summary>
             <param name="data">Os dados retornados pela operação.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.Success"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.Success" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithError(System.String)">
             <summary>
             Cria um novo resultado de erro com uma mensagem específica.
             </summary>
             <param name="message">A mensagem de erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithError(System.Exception)">
             <summary>
             Cria um novo resultado de erro a partir de uma exceção.
             </summary>
             <param name="exception">A exceção que gerou o erro.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithError(System.Collections.Generic.List{System.String})">
             <summary>
             Cria um novo resultado de erro com uma lista de erros gerais.
             </summary>
             <param name="generalErrors">A lista de erros gerais.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithError(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
             <summary>
             Cria um novo resultado de erro com erros de entidade.
             </summary>
             <param name="entityErrors">Um dicionário contendo erros de entidade.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.EntityHasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithError(CRMEducacional.Core.Abstractions.Error)">
             <summary>
             Cria um novo resultado de erro com um erro específico.
             </summary>
             <param name="error">O erro específico.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasError" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithNoContent">
             <summary>
             Cria um novo resultado indicando que não há conteúdo disponível.
             </summary>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.NoContent"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.NoContent" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithValidations(CRMEducacional.Core.Abstractions.Validation[])">
             <summary>
             Cria um novo resultado com validações específicas.
             </summary>
             <param name="validations">As validações a serem aplicadas.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation" />.</returns>
         </member>
         <member name="M:CRMEducacional.Core.Abstractions.CustomResult`1.WithValidations(System.String,System.String)">
             <summary>
@@ -304,7 +304,7 @@
             </summary>
             <param name="propertyName">O nome da propriedade que falhou na validação.</param>
             <param name="description">A descrição do erro de validação.</param>
-            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1"/> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation"/>.</returns>
+            <returns>Um novo <see cref="T:CRMEducacional.Core.Abstractions.CustomResult`1" /> com o status <see cref="F:CRMEducacional.Core.Abstractions.ECustomResultStatus.HasValidation" />.</returns>
         </member>
         <member name="T:CRMEducacional.Core.Abstractions.ICustomResult">
             <summary>
@@ -318,7 +318,7 @@
         </member>
         <member name="T:CRMEducacional.Core.Abstractions.ICustomResult`1">
             <summary>
-            Interface para representar o resultado de uma operação que retorna dados do tipo <typeparamref name="T"/>.
+            Interface para representar o resultado de uma operação que retorna dados do tipo <typeparamref name="T" />.
             </summary>
             <typeparam name="T">O tipo de dados retornado pela operação.</typeparam>
         </member>
