@@ -6,7 +6,7 @@
 public class CustomResult : ICustomResultValidations, ICustomResultError, IRequestEntityWarning
 {
     /// <summary>
-    /// Inicializa uma nova instância de <see cref="CustomResult"/> com o status de sucesso.
+    /// Inicializa uma nova instância de <see cref="CustomResult" /> com o status de sucesso.
     /// </summary>
     public CustomResult()
     {
@@ -14,7 +14,7 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     }
 
     /// <summary>
-    /// Inicializa uma nova instância de <see cref="CustomResult"/> com uma mensagem de erro.
+    /// Inicializa uma nova instância de <see cref="CustomResult" /> com uma mensagem de erro.
     /// </summary>
     /// <param name="message">A mensagem de erro.</param>
     public CustomResult(string message)
@@ -23,7 +23,7 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     }
 
     /// <summary>
-    /// Inicializa uma nova instância de <see cref="CustomResult"/> com um ID e uma mensagem.
+    /// Inicializa uma nova instância de <see cref="CustomResult" /> com um ID e uma mensagem.
     /// </summary>
     /// <param name="id">O ID associado ao resultado.</param>
     /// <param name="message">A mensagem associada ao resultado.</param>
@@ -39,7 +39,8 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     public DateTime Date { get; set; } = DateTime.Now;
 
     /// <summary>
-    /// Obtém ou define um dicionário de erros de entidade, onde a chave é o nome da entidade e o valor é uma lista de erros associados.
+    /// Obtém ou define um dicionário de erros de entidade, onde a chave é o nome da entidade e o
+    /// valor é uma lista de erros associados.
     /// </summary>
     public Dictionary<string, List<string>> EntityErrors { get; set; } = [];
 
@@ -84,7 +85,10 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// <param name="entity">O nome da entidade.</param>
     /// <param name="id">O ID da entidade.</param>
     /// <param name="description">A descrição do aviso.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.EntityAlreadyExists"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.EntityAlreadyExists" />.
+    /// </returns>
     public static CustomResult EntityAlreadyExists(string entity, object id, string description)
         => new()
         {
@@ -98,7 +102,10 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// <param name="entity">O nome da entidade.</param>
     /// <param name="id">O ID da entidade.</param>
     /// <param name="description">A descrição do erro.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.EntityHasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.EntityHasError" />.
+    /// </returns>
     public static CustomResult EntityHasError(string entity, object id, string description)
         => new()
         {
@@ -112,7 +119,10 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// <param name="entity">O nome da entidade.</param>
     /// <param name="id">O ID da entidade.</param>
     /// <param name="description">A descrição do erro.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.EntityNotFound"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.EntityNotFound" />.
+    /// </returns>
     public static CustomResult EntityNotFound(string entity, object id, string description)
         => new()
         {
@@ -123,14 +133,18 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// <summary>
     /// Cria um novo resultado de sucesso.
     /// </summary>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.Success"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see cref="ECustomResultStatus.Success" />.
+    /// </returns>
     public static CustomResult Success() => new CustomResult { Status = ECustomResultStatus.Success };
 
     /// <summary>
     /// Cria um novo resultado com um erro geral.
     /// </summary>
     /// <param name="message">A mensagem de erro.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public static CustomResult WithError(string message)
         => new()
         {
@@ -142,14 +156,18 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// Cria um novo resultado com um erro geral a partir de uma exceção.
     /// </summary>
     /// <param name="exception">A exceção que gerou o erro.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public static CustomResult WithError(Exception exception) => WithError(exception.Message);
 
     /// <summary>
     /// Cria um novo resultado com uma lista de erros gerais.
     /// </summary>
     /// <param name="generalErrors">A lista de erros gerais.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public static CustomResult WithError(List<string> generalErrors)
         => new()
         {
@@ -161,7 +179,10 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// Cria um novo resultado com erros de entidade.
     /// </summary>
     /// <param name="entityErrors">Um dicionário contendo erros de entidade.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.EntityHasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.EntityHasError" />.
+    /// </returns>
     public static CustomResult WithError(Dictionary<string, List<string>> entityErrors)
         => new()
         {
@@ -173,7 +194,9 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// Cria um novo resultado com um erro específico.
     /// </summary>
     /// <param name="error">O erro específico.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public static CustomResult WithError(Error error)
         => new()
         {
@@ -184,14 +207,19 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// <summary>
     /// Cria um novo resultado indicando que não há conteúdo disponível.
     /// </summary>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.NoContent"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see cref="ECustomResultStatus.NoContent" />.
+    /// </returns>
     public static CustomResult WithNoContent() => new CustomResult { Status = ECustomResultStatus.NoContent };
 
     /// <summary>
     /// Cria um novo resultado com validações específicas.
     /// </summary>
     /// <param name="validations">As validações a serem aplicadas.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasValidation"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.HasValidation" />.
+    /// </returns>
     public static CustomResult WithValidations(params Validation[] validations)
         => new()
         {
@@ -203,7 +231,10 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// Cria um novo resultado com uma coleção de validações.
     /// </summary>
     /// <param name="validations">A coleção de validações.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasValidation"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.HasValidation" />.
+    /// </returns>
     public static CustomResult WithValidations(IEnumerable<Validation> validations)
         => WithValidations(validations.ToArray());
 
@@ -212,7 +243,10 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
     /// </summary>
     /// <param name="propertyName">O nome da propriedade que falhou na validação.</param>
     /// <param name="description">A descrição do erro de validação.</param>
-    /// <returns>Um novo <see cref="CustomResult"/> com o status <see cref="ECustomResultStatus.HasValidation"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult" /> com o status <see
+    /// cref="ECustomResultStatus.HasValidation" />.
+    /// </returns>
     public static CustomResult WithValidations(string propertyName, string description)
         => WithValidations(new Validation(propertyName, description));
 
@@ -244,7 +278,7 @@ public class CustomResult : ICustomResultValidations, ICustomResultError, IReque
 }
 
 /// <summary>
-/// Representa o resultado de uma operação contendo dados específicos do tipo <typeparamref name="T"/>.
+/// Representa o resultado de uma operação contendo dados específicos do tipo <typeparamref name="T" />.
 /// </summary>
 /// <typeparam name="T">O tipo de dados retornado pela operação.</typeparam>
 public class CustomResult<T> : CustomResult, ICustomResult<T>
@@ -260,7 +294,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// <param name="entity">O nome da entidade.</param>
     /// <param name="id">O ID da entidade.</param>
     /// <param name="description">A descrição do aviso.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.EntityAlreadyExists"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.EntityAlreadyExists" />.
+    /// </returns>
     public new static CustomResult<T> EntityAlreadyExists(string entity, object id, string description)
         => new()
         {
@@ -274,7 +311,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// <param name="entity">O nome da entidade.</param>
     /// <param name="id">O ID da entidade.</param>
     /// <param name="description">A descrição do erro.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.EntityHasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.EntityHasError" />.
+    /// </returns>
     public new static CustomResult<T> EntityHasError(string entity, object id, string description)
         => new()
         {
@@ -288,7 +328,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// <param name="entity">O nome da entidade.</param>
     /// <param name="id">O ID da entidade.</param>
     /// <param name="description">A descrição do erro.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.EntityNotFound"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.EntityNotFound" />.
+    /// </returns>
     public new static CustomResult<T> EntityNotFound(string entity, object? id, string description)
         => new()
         {
@@ -324,7 +367,9 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// Cria um novo resultado de sucesso com os dados fornecidos.
     /// </summary>
     /// <param name="data">Os dados retornados pela operação.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.Success"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see cref="ECustomResultStatus.Success" />.
+    /// </returns>
     public static CustomResult<T> Success(T data)
         => new()
         {
@@ -336,7 +381,9 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// Cria um novo resultado de erro com uma mensagem específica.
     /// </summary>
     /// <param name="message">A mensagem de erro.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public new static CustomResult<T> WithError(string message)
         => new()
         {
@@ -348,14 +395,18 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// Cria um novo resultado de erro a partir de uma exceção.
     /// </summary>
     /// <param name="exception">A exceção que gerou o erro.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public new static CustomResult<T> WithError(Exception exception) => WithError(exception.Message);
 
     /// <summary>
     /// Cria um novo resultado de erro com uma lista de erros gerais.
     /// </summary>
     /// <param name="generalErrors">A lista de erros gerais.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public new static CustomResult<T> WithError(List<string> generalErrors)
         => new()
         {
@@ -367,7 +418,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// Cria um novo resultado de erro com erros de entidade.
     /// </summary>
     /// <param name="entityErrors">Um dicionário contendo erros de entidade.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.EntityHasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.EntityHasError" />.
+    /// </returns>
     public new static CustomResult<T> WithError(Dictionary<string, List<string>> entityErrors)
         => new()
         {
@@ -379,7 +433,9 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// Cria um novo resultado de erro com um erro específico.
     /// </summary>
     /// <param name="error">O erro específico.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.HasError"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see cref="ECustomResultStatus.HasError" />.
+    /// </returns>
     public new static CustomResult<T> WithError(Error error)
         => new()
         {
@@ -390,7 +446,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// <summary>
     /// Cria um novo resultado indicando que não há conteúdo disponível.
     /// </summary>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.NoContent"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.NoContent" />.
+    /// </returns>
     public new static CustomResult<T> WithNoContent()
         => new()
         {
@@ -401,7 +460,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// Cria um novo resultado com validações específicas.
     /// </summary>
     /// <param name="validations">As validações a serem aplicadas.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.HasValidation"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.HasValidation" />.
+    /// </returns>
     public new static CustomResult<T> WithValidations(params Validation[] validations)
         => new()
         {
@@ -414,7 +476,10 @@ public class CustomResult<T> : CustomResult, ICustomResult<T>
     /// </summary>
     /// <param name="propertyName">O nome da propriedade que falhou na validação.</param>
     /// <param name="description">A descrição do erro de validação.</param>
-    /// <returns>Um novo <see cref="CustomResult{T}"/> com o status <see cref="ECustomResultStatus.HasValidation"/>.</returns>
+    /// <returns>
+    /// Um novo <see cref="CustomResult{T}" /> com o status <see
+    /// cref="ECustomResultStatus.HasValidation" />.
+    /// </returns>
     public new static CustomResult<T> WithValidations(string propertyName, string description)
         => WithValidations(new Validation(propertyName, description));
 }
@@ -431,7 +496,8 @@ public interface ICustomResult
 }
 
 /// <summary>
-/// Interface para representar o resultado de uma operação que retorna dados do tipo <typeparamref name="T"/>.
+/// Interface para representar o resultado de uma operação que retorna dados do tipo <typeparamref
+/// name="T" />.
 /// </summary>
 /// <typeparam name="T">O tipo de dados retornado pela operação.</typeparam>
 public interface ICustomResult<out T> : ICustomResult

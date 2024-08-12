@@ -31,6 +31,12 @@ public class OfertaRepositorio : IOfertaRepositorio
     {
         try
         {
+            var existingOferta = await _context.Ofertas.FindAsync(oferta.Id);
+            if (existingOferta == null)
+            {
+                return CustomResult<Oferta>.WithError($"Oferta com ID {oferta.Id} não encontrado.");
+            }
+            _context.Entry(existingOferta).State = EntityState.Detached;
             _context.Entry(oferta).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return CustomResult<Oferta>.Success(oferta);

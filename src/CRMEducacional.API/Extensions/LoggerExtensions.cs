@@ -3,44 +3,45 @@
 public static class LoggerExtensions
 {
     public static void CustomFormatLog(
-        this ILogger logger,
-        LogEventLevel level,
-        string controllerName,
-        string actionName,
-        string messageTemplate,
-        params object[] args
-    )
+          this ILogger logger,
+          LogEventLevel level,
+          string controllerName,
+          string actionName,
+          string messageTemplate
+      )
     {
         var formattedMessageTemplate = $"{controllerName} => {actionName} => {messageTemplate}";
 
         switch (level)
         {
             case LogEventLevel.Verbose:
-            logger.Verbose(formattedMessageTemplate, args);
+            logger.Verbose(formattedMessageTemplate);
             break;
 
             case LogEventLevel.Debug:
-            logger.Debug(formattedMessageTemplate, args);
+            logger.Debug(formattedMessageTemplate);
             break;
 
             case LogEventLevel.Information:
-            logger.Information(formattedMessageTemplate, args);
+            logger.Information(formattedMessageTemplate);
             break;
 
             case LogEventLevel.Warning:
-            logger.Warning(formattedMessageTemplate, args);
+            logger.Warning(formattedMessageTemplate);
             break;
 
             case LogEventLevel.Error:
-            logger.Error(formattedMessageTemplate, args);
+            logger.Error(formattedMessageTemplate);
+            Log.CloseAndFlush();
             break;
 
             case LogEventLevel.Fatal:
-            logger.Fatal(formattedMessageTemplate, args);
+            logger.Fatal(formattedMessageTemplate);
+            Log.CloseAndFlush();
             break;
 
             default:
-            logger.Information(formattedMessageTemplate, args);
+            logger.Information(formattedMessageTemplate);
             break;
         }
     }

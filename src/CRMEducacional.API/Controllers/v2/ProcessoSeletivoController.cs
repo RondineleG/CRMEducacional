@@ -47,9 +47,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Recebeu os parâmetros: pagina={Pagina}, itensPorPagina={ItensPorPagina}",
-                pagina,
-                itensPorPagina
+               $"Recebeu os parâmetros: pagina={pagina}, itensPorPagina={itensPorPagina}"
             );
 
             var response = await _processoSeletivoServico.ObterTodosAsync(pagina, itensPorPagina);
@@ -58,9 +56,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             var dtoResponse = response.Data?.Select(ProcessoSeletivoResponseDto.FromEntity);
@@ -79,9 +75,8 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Encontrou uma exceção: {MensagemExcecao}",
-                ex.Message
-            );
+                $"Encontrou uma exceção: {ex.Message}"
+                );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
         finally
@@ -91,8 +86,7 @@ public class ProcessoSeletivoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(ProcessoSeletivoController),
                 nameof(ObterTodosAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+                $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
         }
     }
