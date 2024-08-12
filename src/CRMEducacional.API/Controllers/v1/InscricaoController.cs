@@ -54,9 +54,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(AtualizarAsync),
-                "Recebeu os parâmetros: inscricaoId={inscricaoId}, inscricaoRequestDto={inscricaoRequestDto}",
-                inscricaoId,
-                inscricaoRequestDto
+               $"Recebeu os parâmetros: inscricaoId={inscricaoId}, inscricaoRequestDto={inscricaoRequestDto}"
             );
 
             var inscricaoResult = await _inscricaoServico.ObterPorIdAsync(inscricaoId);
@@ -78,9 +76,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(AtualizarAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+             $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -96,8 +92,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(InscricaoController),
                 nameof(AtualizarAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -108,8 +103,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(AtualizarAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+                $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
         }
     }
@@ -142,8 +136,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(CriarNovoAsync),
-                "Recebeu os parâmetros: request={request}",
-                request
+                $"Recebeu os parâmetros: request={request}"
             );
 
             var inscricao = InscricaoRequestDto.Create(request);
@@ -153,9 +146,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(CriarNovoAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+               $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -171,8 +162,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(InscricaoController),
                 nameof(CriarNovoAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+      $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -183,8 +173,8 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(CriarNovoAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+                $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -217,8 +207,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(DeletarAsync),
-                "Recebeu o parâmetro: inscricaoId={inscricaoId}",
-                inscricaoId
+                $"Recebeu o parâmetro: inscricaoId={inscricaoId}"
             );
 
             var response = await _inscricaoServico.RemoverAsync(inscricaoId);
@@ -227,8 +216,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(DeletarAsync),
-                "Exclusão concluída com sucesso para o inscricaoId={inscricaoId}",
-                inscricaoId
+                $"Exclusão concluída com sucesso para o inscricaoId={inscricaoId}"
             );
 
             return response.Status switch
@@ -245,8 +233,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(InscricaoController),
                 nameof(DeletarAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+          $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -259,8 +246,8 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(DeletarAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+               $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -293,8 +280,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(ObterPorIdAsync),
-                "Recebeu o parâmetro: inscricaoId={inscricaoId}",
-                inscricaoId
+                $"Recebeu o parâmetro: inscricaoId={inscricaoId}"
             );
 
             var response = await _inscricaoServico.ObterPorIdAsync(inscricaoId);
@@ -303,9 +289,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(ObterPorIdAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                        $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -322,8 +306,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(InscricaoController),
                 nameof(ObterPorIdAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -336,8 +319,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(ObterPorIdAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+               $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
         }
     }
@@ -372,9 +354,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(ObterTodosAsync),
-                "Recebeu os parâmetros: pagina={pagina}, itensPorPagina={itensPorPagina}",
-                pagina,
-                itensPorPagina
+               $"Recebeu os parâmetros: pagina={pagina}, itensPorPagina={itensPorPagina}"
             );
 
             var response = await _inscricaoServico.ObterTodosAsync(pagina, itensPorPagina);
@@ -383,9 +363,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(ObterTodosAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -402,8 +380,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(InscricaoController),
                 nameof(ObterTodosAsync),
-                "Encontrou uma exceção: {MensagemExcecao}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -414,8 +391,7 @@ public class InscricaoController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(InscricaoController),
                 nameof(ObterTodosAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+                $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
         }
     }

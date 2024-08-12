@@ -52,9 +52,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(AtualizarAsync),
-                "Recebeu os parâmetros: ofertaId={ofertaId}, request={request}",
-                ofertaId,
-                request
+                $"Recebeu os parâmetros: ofertaId={ofertaId}, request={request}"
             );
 
             var oferta = await _ofertaServico.ObterPorIdAsync(ofertaId);
@@ -70,9 +68,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(AtualizarAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -88,8 +84,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(OfertaController),
                 nameof(AtualizarAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -100,8 +95,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(AtualizarAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+                 $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
         }
     }
@@ -134,8 +128,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(CriarNovoAsync),
-                "Recebeu os parâmetros: request={request}",
-                request
+                $"Recebeu os parâmetros: request={request}"
             );
 
             var oferta = OfertaRequestDto.Create(request);
@@ -145,9 +138,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(CriarNovoAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -163,8 +154,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(OfertaController),
                 nameof(CriarNovoAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -175,8 +165,8 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(CriarNovoAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -209,8 +199,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(DeletarAsync),
-                "Recebeu o parâmetro: ofertaId={ofertaId}",
-                ofertaId
+                $"Recebeu o parâmetro: ofertaId={ofertaId}"
             );
 
             var resultado = await _ofertaServico.RemoverAsync(ofertaId);
@@ -219,8 +208,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(DeletarAsync),
-                "Exclusão concluída com sucesso para o ofertaId={ofertaId}",
-                ofertaId
+                $"Exclusão concluída com sucesso para o ofertaId={ofertaId}"
             );
 
             return resultado.Status switch
@@ -237,8 +225,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(OfertaController),
                 nameof(DeletarAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -251,8 +238,8 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(DeletarAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -285,8 +272,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(ObterPorIdAsync),
-                "Recebeu o parâmetro: ofertaId={ofertaId}",
-                ofertaId
+                $"Recebeu o parâmetro: ofertaId={ofertaId}"
             );
 
             var response = await _ofertaServico.ObterPorIdAsync(ofertaId);
@@ -295,9 +281,8 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(ObterPorIdAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+                            $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
 
             return response.Status switch
@@ -314,8 +299,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(OfertaController),
                 nameof(ObterPorIdAsync),
-                $"Encontrou uma exceção: {ex.Message}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError(
                 "Ocorreu um erro interno ao processar a solicitação."
@@ -328,8 +312,8 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(ObterPorIdAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
@@ -364,9 +348,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(ObterTodosAsync),
-                "Recebeu os parâmetros: pagina={pagina}, itensPorPagina={itensPorPagina}",
-                pagina,
-                itensPorPagina
+                $"Recebeu os parâmetros: pagina={pagina}, itensPorPagina={itensPorPagina}"
             );
 
             var response = await _ofertaServico.ObterTodosAsync(pagina, itensPorPagina);
@@ -375,9 +357,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(ObterTodosAsync),
-                "Completou a execução. Status: {Status}. Tempo de execução: {TempoExecucao} ms",
-                response.Status,
-                stopwatch.ElapsedMilliseconds
+               $"Completou a execução. Status: {response.Status}. Tempo de execução: {stopwatch.ElapsedMilliseconds} ms"
             );
 
             return response.Status switch
@@ -394,8 +374,7 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Error,
                 nameof(OfertaController),
                 nameof(ObterTodosAsync),
-                "Encontrou uma exceção: {MensagemExcecao}",
-                ex.Message
+                $"Encontrou uma exceção: {ex.Message}"
             );
             return ResponseInternalServerError("Ocorreu um erro interno ao processar a solicitação.");
         }
@@ -406,8 +385,8 @@ public class OfertaController : ApiBaseController
                 LogEventLevel.Information,
                 nameof(OfertaController),
                 nameof(ObterTodosAsync),
-                "Tempo total de execução: {TempoExecucao} ms",
-                stopwatch.ElapsedMilliseconds
+         $"Tempo total de execução: {stopwatch.ElapsedMilliseconds} ms"
+
             );
         }
     }
