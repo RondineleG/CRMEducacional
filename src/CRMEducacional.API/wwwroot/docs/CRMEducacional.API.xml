@@ -4,16 +4,26 @@
         <name>CRMEducacional.API</name>
     </assembly>
     <members>
-        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.AtualizarAsync(System.Int32,CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto)">
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.ObterPorCPFAsync(System.String)">
             <summary>
-            Atualiza uma inscrição existente pelo ID.
+            Obtém todas as inscrições associadas a um determinado CPF.
             </summary>
-            <param name="inscricaoId">ID da inscrição a ser atualizada.</param>
-            <param name="inscricaoRequestDto">Dados da inscrição para atualização.</param>
-            <returns>Retorna a inscrição atualizada.</returns>
-            <response code="200">Retorna a inscrição atualizada.</response>
-            <response code="400">Se o ID da inscrição ou os dados de entrada forem inválidos.</response>
-            <response code="404">Se a inscrição não for encontrada.</response>
+            <param name="cpf">CPF do lead.</param>
+            <returns>Retorna as inscrições associadas ao CPF.</returns>
+            <response code="200">Retorna as inscrições encontradas.</response>
+            <response code="400">Se o CPF for inválido.</response>
+            <response code="404">Se nenhuma inscrição for encontrada.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.ObterPorOfertaAsync(System.Int32)">
+            <summary>
+            Obtém todas as inscrições associadas a uma determinada oferta.
+            </summary>
+            <param name="ofertaId">ID da oferta.</param>
+            <returns>Retorna as inscrições associadas à oferta.</returns>
+            <response code="200">Retorna as inscrições encontradas.</response>
+            <response code="400">Se o ID da oferta for inválido.</response>
+            <response code="404">Se nenhuma inscrição for encontrada.</response>
             <response code="500">Se ocorrer um erro interno no servidor.</response>
         </member>
         <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.CriarNovoAsync(CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto)">
@@ -24,6 +34,18 @@
             <returns>Retorna a inscrição criada.</returns>
             <response code="201">Retorna a inscrição criada.</response>
             <response code="400">Se os dados de entrada forem inválidos.</response>
+            <response code="500">Se ocorrer um erro interno no servidor.</response>
+        </member>
+        <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.AtualizarAsync(System.Int32,CRMEducacional.Application.Dtos.Inscricao.Request.InscricaoRequestDto)">
+            <summary>
+            Atualiza uma inscrição existente pelo ID.
+            </summary>
+            <param name="inscricaoId">ID da inscrição a ser atualizada.</param>
+            <param name="inscricaoRequestDto">Dados da inscrição para atualização.</param>
+            <returns>Retorna a inscrição atualizada.</returns>
+            <response code="200">Retorna a inscrição atualizada.</response>
+            <response code="400">Se o ID da inscrição ou os dados de entrada forem inválidos.</response>
+            <response code="404">Se a inscrição não for encontrada.</response>
             <response code="500">Se ocorrer um erro interno no servidor.</response>
         </member>
         <member name="M:CRMEducacional.API.Controllers.v1.InscricaoController.DeletarAsync(System.Int32)">

@@ -28,9 +28,9 @@ public class OfertaController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpPut("{ofertaId}")]
     [ProducesResponseType(typeof(OfertaResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     [Consumes("application/json")]
     public async Task<IActionResult> AtualizarAsync(int ofertaId, [FromBody] OfertaRequestDto request)
@@ -110,8 +110,8 @@ public class OfertaController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpPost]
     [ProducesResponseType(typeof(OfertaResponseDto), StatusCodes.Status201Created)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     [Consumes("application/json")]
     public async Task<IActionResult> CriarNovoAsync([FromBody] OfertaRequestDto request)
@@ -182,9 +182,9 @@ public class OfertaController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpDelete("{ofertaId}")]
     [ProducesResponseType(typeof(OfertaResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> DeletarAsync(int ofertaId)
     {
         if (ofertaId <= 0)
@@ -255,9 +255,9 @@ public class OfertaController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("{ofertaId}")]
     [ProducesResponseType(typeof(OfertaResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> ObterPorIdAsync(int ofertaId)
     {
         if (ofertaId <= 0)
@@ -330,9 +330,9 @@ public class OfertaController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("Todos")]
     [ProducesResponseType(typeof(IEnumerable<OfertaResponseDto>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     public async Task<IActionResult> ObterTodosAsync([FromQuery] int pagina = 1, [FromQuery] int itensPorPagina = 20)
     {

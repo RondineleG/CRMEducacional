@@ -28,9 +28,9 @@ public class InscricaoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("PorCpf/{cpf}")]
     [ProducesResponseType(typeof(IEnumerable<InscricaoResponseDto>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> ObterPorCPFAsync(string cpf)
     {
         if (string.IsNullOrWhiteSpace(cpf))
@@ -98,9 +98,9 @@ public class InscricaoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("PorOferta/{ofertaId}")]
     [ProducesResponseType(typeof(IEnumerable<InscricaoResponseDto>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> ObterPorOfertaAsync(int ofertaId)
     {
         if (ofertaId <= 0)
@@ -168,8 +168,8 @@ public class InscricaoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpPost]
     [ProducesResponseType(typeof(InscricaoResponseDto), StatusCodes.Status201Created)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     [Consumes("application/json")]
     public async Task<IActionResult> CriarNovoAsync([FromBody] InscricaoRequestDto request)
@@ -241,9 +241,9 @@ public class InscricaoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpPut("{inscricaoId}")]
     [ProducesResponseType(typeof(InscricaoResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     [Consumes("application/json")]
     public async Task<IActionResult> AtualizarAsync(int inscricaoId, [FromBody] InscricaoRequestDto inscricaoRequestDto)
@@ -403,9 +403,9 @@ public class InscricaoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("{inscricaoId}")]
     [ProducesResponseType(typeof(InscricaoResponseDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> ObterPorIdAsync(int inscricaoId)
     {
         if (inscricaoId <= 0)
@@ -476,9 +476,9 @@ public class InscricaoController : ApiBaseController
     /// <response code="500">Se ocorrer um erro interno no servidor.</response>
     [HttpGet("Todos")]
     [ProducesResponseType(typeof(IEnumerable<InscricaoResponseDto>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(CustomResult), StatusCodes.Status500InternalServerError)]
     [Produces("application/json")]
     public async Task<IActionResult> ObterTodosAsync([FromQuery] int pagina = 1, [FromQuery] int itensPorPagina = 20)
     {
